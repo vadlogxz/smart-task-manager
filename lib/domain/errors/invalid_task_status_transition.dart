@@ -1,4 +1,4 @@
-import 'package:smart_task_manager/domain/entities/task_status.dart';
+import 'package:smart_task_manager/domain/value_objects/task_status.dart';
 
 class InvalidTaskStatusTransition implements Exception {
   final TaskStatus fromStatus;

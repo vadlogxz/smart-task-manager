@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:smart_task_manager/domain/entities/task.dart';
-import 'package:smart_task_manager/domain/entities/task_id.dart';
-import 'package:smart_task_manager/domain/entities/task_status.dart';
-import 'package:smart_task_manager/domain/entities/task_title.dart';
+import 'package:smart_task_manager/domain/value_objects/task_id.dart';
+import 'package:smart_task_manager/domain/value_objects/task_status.dart';
 import 'package:smart_task_manager/domain/rules/task_status_policy.dart';
-import 'package:smart_task_manager/errors/invalid_task_status_transition.dart';
+import 'package:smart_task_manager/domain/errors/invalid_task_status_transition.dart';
+import 'package:smart_task_manager/domain/value_objects/task_title.dart';
 
 void main(){
   group('TaskStatusPolicy', (){

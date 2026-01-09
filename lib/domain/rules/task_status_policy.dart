@@ -1,7 +1,7 @@
 import 'package:smart_task_manager/domain/entities/task.dart';
-import 'package:smart_task_manager/domain/entities/task_status.dart';
+import 'package:smart_task_manager/domain/value_objects/task_status.dart';
 
-import '../../errors/invalid_task_status_transition.dart';
+import '../errors/invalid_task_status_transition.dart';
 
 class TaskStatusPolicy {
 
