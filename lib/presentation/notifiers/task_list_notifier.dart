@@ -19,4 +19,10 @@ class TaskListNotifier extends AsyncNotifier<List<Task>> {
     await usecase(taskId, newStatus);
     state = AsyncData(await ref.read(taskRepositoryProvider).getAll());
   }
+
+  Future<void> reload() async {
+    final repo = ref.read(taskRepositoryProvider);
+    state = const AsyncLoading();
+    state = AsyncData(await repo.getAll());
+  }
 }

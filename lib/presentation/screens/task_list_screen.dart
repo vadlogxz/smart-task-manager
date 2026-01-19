@@ -20,7 +20,6 @@ class TaskListScreen extends ConsumerWidget {
             final task = tasks[index];
             return TaskTile(
               task: task,
-
               onStatusChanged: (TaskStatus updatedStatus) {
                 ref.read(taskListProvider.notifier).changeStatus(task.id, updatedStatus);
               },
@@ -33,9 +32,7 @@ class TaskListScreen extends ConsumerWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Task List'),
-      ),
+      appBar: AppBar(title: const Text('Task List')),
       body: body,
     );
   }

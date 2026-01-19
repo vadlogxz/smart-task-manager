@@ -4,6 +4,7 @@ import 'package:smart_task_manager/domain/errors/task_not_found.dart';
 import 'package:smart_task_manager/domain/repositories/task_repository.dart';
 import 'package:smart_task_manager/domain/usecases/change_task_status.dart';
 import 'package:smart_task_manager/domain/value_objects/task_id.dart';
+import 'package:smart_task_manager/domain/value_objects/task_priority.dart';
 import 'package:smart_task_manager/domain/value_objects/task_status.dart';
 import 'package:smart_task_manager/domain/rules/task_status_policy.dart';
 import 'package:smart_task_manager/domain/value_objects/task_title.dart';
@@ -43,11 +44,12 @@ void main() {
   test('changes task status and saves task', () async {
     // arrange
     final task = Task(
-      id: TaskId('1'),
-      title: TaskTitle('Test task'),
+      id: TaskId.fromString('1'),
+      title: TaskTitle.fromString('Test task'),
       description: '',
       dueDate: DateTime.now(),
       status: TaskStatus.todo,
+      priority: TaskPriority.low
     );
 
     repository.task = task;
@@ -65,7 +67,7 @@ void main() {
 
   test('throws TaskNotFound when task does not exist', () async {
     // arrange
-    final taskId = TaskId('missing');
+    final taskId = TaskId.fromString('missing');
 
     // act
     final call = usecase(
@@ -83,11 +85,12 @@ void main() {
   test('throws error when status transition is invalid', () async {
     // arrange
     final task = Task(
-      id: TaskId('1'),
-      title: TaskTitle('Test'),
+      id: TaskId.fromString('1'),
+      title: TaskTitle.fromString('Test'),
       description: '',
       dueDate: DateTime.now(),
       status: TaskStatus.done,
+      priority: TaskPriority.low
     );
 
     repository.task = task;

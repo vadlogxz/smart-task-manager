@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_task_manager/domain/entities/task.dart';
 import 'package:smart_task_manager/domain/value_objects/task_status.dart';
+import 'package:smart_task_manager/presentation/extensions/task_status_ui.dart';
 
 class TaskTile extends StatelessWidget {
   final Task task;
@@ -16,7 +17,7 @@ class TaskTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(task.title.toString()),
-      subtitle: Text(task.status.name),
+      subtitle: Text(task.status.label),
       trailing: PopupMenuButton <TaskStatus>(
         onSelected: (TaskStatus selectedStatus) {
           onStatusChanged(selectedStatus);
@@ -25,7 +26,7 @@ class TaskTile extends StatelessWidget {
           return TaskStatus.values.map((TaskStatus status) {
             return PopupMenuItem(
               value: status,
-              child: Text(status.name),
+              child: Text(status.label),
             );
           }).toList();
         },
